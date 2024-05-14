@@ -1,2 +1,5 @@
 # mlopsZoomCamp
-Main repository to progress through the MLOps Zoom camp course. https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
+Main repository for my own progression through the MLOps Zoom camp course. 
+
+Link to course info:
+https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
