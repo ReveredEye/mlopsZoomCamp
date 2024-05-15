@@ -8,8 +8,8 @@ https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
 Python, Dev containers
 
 # Commands to run in command palette (vscode)
-> Codespaces: Add Dev Container Configuration files
-> Python: Select interpreter
+> Codespaces: Add Dev Container Configuration files\n
+> Python: Create environment
 
 # Good resources:
 
