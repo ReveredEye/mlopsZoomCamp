@@ -1,5 +1,6 @@
 # mlopsZoomCamp
-Main repository for my own progression through the MLOps Zoom camp course. 
+Main repository for my own progression through the MLOps Zoom camp course. To activate or deactivate python environment in codespaces
+use `source <interpreter directory>/bin/activate` or `. deactivate`.
 
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
