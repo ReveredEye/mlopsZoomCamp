@@ -5,6 +5,9 @@ import click
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
+# Script has been modified to autologging with MLflow.
+import mlflow
+
 
 def load_pickle(filename: str):
     with open(filename, "rb") as f_in:
@@ -30,4 +33,10 @@ def run_train(data_path: str):
 
 
 if __name__ == '__main__':
-    run_train()
+    # Initiate autolog and start run with mlflow
+    mlflow.autolog()
+    mlflow.set_tracking_uri('sqlite:///mlflow.db')
+    mlflow.set_experiment('nyc-green-taxi-exp')
+    with mlflow.start_run():
+        mlflow.set_tag("developer", "wylie")
+        run_train()
