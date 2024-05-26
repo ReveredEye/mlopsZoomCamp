@@ -3,7 +3,7 @@ import pickle
 import click
 
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import root_mean_squared_error
 
 # Script has been modified to autologging with MLflow.
 import mlflow
@@ -29,14 +29,21 @@ def run_train(data_path: str):
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_val)
 
-    rmse = mean_squared_error(y_val, y_pred, squared=False)
+    # rmse = mean_squared_error(y_val, y_pred, squared=False) <-- squared is deprecated.
+    rmse = root_mean_squared_error(y_val, y_pred)
+    return rmse
 
 
 if __name__ == '__main__':
     # Initiate autolog and start run with mlflow
-    mlflow.autolog()
+    # ---- IMPORTANT: use `mlflow run --no-conda` to use without conda.------
     mlflow.set_tracking_uri('sqlite:///mlflow.db')
     mlflow.set_experiment('nyc-green-taxi-exp')
+
+    # Below sets log_datasets = False to not track training data as data is NumPy array but
+    # mlflow expects pandas DataFrames.
+    mlflow.autolog(log_datasets = False)
     with mlflow.start_run():
         mlflow.set_tag("developer", "wylie")
-        run_train()
+        rmse = run_train()
+        mlflow.log_metric(rmse)
