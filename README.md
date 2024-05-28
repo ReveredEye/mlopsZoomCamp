@@ -7,6 +7,9 @@ I have used `wget <url_link>` to install files in the data folder within the bas
 
 To use mlflow ui, you can just try to run `mlflow ui --backend-store-uri sqlite:///mlflow.db` then open the listening port url just like with Jupyter notebooks.
 
+To use docker, look at `Step 3: Install Docker` within https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/01-intro
+Note that Github codespaces uses Linux OS.
+
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
 
