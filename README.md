@@ -1,14 +1,15 @@
 # mlopsZoomCamp
 Main repository for my own progression through the MLOps Zoom camp course. To activate or deactivate python environment in codespaces
-use `source <interpreter directory>/bin/activate` or `. deactivate`.
+use `source <interpreter directory>/bin/activate` or `. deactivate`. 
+
+To start docker in GitHub codespaces, just run `docker run hello-world` and it will set it up for you. Note, that codespaces uses Linux OS.
 
 Since I am doing this without conda (i.e. using '.venv' as environment), for `mlflow` to work ensure that `setuptools` package exists within the environment.
 I have used `wget <url_link>` to install files in the data folder within the bash command line. 
 
 To use mlflow ui, you can just try to run `mlflow ui --backend-store-uri sqlite:///mlflow.db` then open the listening port url just like with Jupyter notebooks.
 
-To use docker, look at `Step 3: Install Docker` within https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/01-intro
-Note that Github codespaces uses Linux OS.
+
 
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
