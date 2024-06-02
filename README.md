@@ -12,7 +12,7 @@ I have used `wget <url_link>` to install files in the data folder within the bas
 To use mlflow ui, you can just try to run `mlflow ui --backend-store-uri sqlite:///mlflow.db` then open the listening port url just like with Jupyter notebooks.
 
 To run mage go to the directory containing mage project and configuration files, in this repository it is `mage-quickstart`. Once in the directory,
-run `docker compose up` and then open `http://localhost:6789` in your browser.
+run `docker compose up` and then open `http://localhost:6789` in your browser. The contents for the Mage AI orchestration tool are within `mage-repo` branch.
 
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
