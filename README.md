@@ -11,7 +11,8 @@ I have used `wget <url_link>` to install files in the data folder within the bas
 
 To use mlflow ui, you can just try to run `mlflow ui --backend-store-uri sqlite:///mlflow.db` then open the listening port url just like with Jupyter notebooks.
 
-
+To run mage go to the directory containing mage project and configuration files, in this repository it is `mage-quickstart`. Once in the directory,
+run `docker compose up` and then open `http://localhost:6789` in your browser.
 
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
@@ -28,4 +29,11 @@ Python, Dev containers
 
 Set up python project in Github workspaces
 https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
+
+Mage Quickstart
+https://docs.mage.ai/getting-started/setup#docker-compose-template
+
+# Datasets:
+New York City Taxi Data
+https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page?ref=timescale.com
 
