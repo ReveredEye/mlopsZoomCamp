@@ -16,3 +16,15 @@ services:
     volumes:
       - .:/home/src/
     restart: on-failure:5
+  
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow.dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - "${PWD}/mlflow:/home/mlflow/"
+    # networks:
+    #   # - app-network <- This was provided but see networks through cmd `docker network ls`
+    #   - mage-quickstart_default
