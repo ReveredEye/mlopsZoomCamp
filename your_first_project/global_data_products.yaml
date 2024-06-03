@@ -1,0 +1,52 @@
+nyc_training_yel23:
+  object_type: pipeline
+  object_uuid: nyc_yellow_2023
+  outdated_after:
+    seconds: 600
+  repo_path: /home/src/your_first_project
+  settings:
+    nyc_yellow23_build: {}
+nyc_yellow23_train:
+  object_type: pipeline
+  object_uuid: nyc_yellow_2023
+  outdated_after:
+    seconds: 600
+  repo_path: /home/src/your_first_project
+  settings:
+    nyc_yellow23_prep: {}
+nyc_yellow23_train_data:
+  object_type: pipeline
+  object_uuid: nyc_yellow_2023
+  outdated_after:
+    seconds: 600
+  repo_path: /home/src/your_first_project
+  settings:
+    nyc_yellow23_prep: {}
+nyc_yellow23_train_duration:
+  object_type: pipeline
+  object_uuid: nyc_yellow_2023
+  outdated_after:
+    seconds: 600
+  repo_path: /home/src/your_first_project
+  settings:
+    nyc_yellow23_build: {}
+nyc_yellow_2023_train:
+  object_type: pipeline
+  object_uuid: nyc_yellow_2023
+  outdated_after:
+    seconds: 600
+  outdated_starting_at:
+    month_of_year: 9
+  repo_path: /home/src/your_first_project
+  settings:
+    nyc_yellow23_build:
+      partitions: 1
+nyctrainyel23:
+  object_type: pipeline
+  object_uuid: nyc_yellow_2023
+  outdated_after:
+    seconds: 600
+  repo_path: /home/src/your_first_project
+  settings:
+    nyc_yellow23_build:
+      partitions: 1
