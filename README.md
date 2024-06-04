@@ -9,13 +9,14 @@ Try to avoid using `.devcontainer` folder in `intro_Homework` branch as it messe
 Since I am doing this without conda (i.e. using '.venv' as environment), for `mlflow` to work ensure that `setuptools` package exists within the environment.
 I have used `wget <url_link>` to install files in the data folder within the bash command line. 
 
-To use mlflow ui, you can just try to run `mlflow ui --backend-store-uri sqlite:///mlflow.db` then open the listening port url just like with Jupyter notebooks.
-Or just go to `http://127.0.0.1:5000` in the browser.
+To use mlflow ui, you can just try to run `mlflow ui --backend-store-uri sqlite:///mlflow.db` then open the listening port url just like with Jupyter notebooks 
+or just go to `http://127.0.0.1:5000` in the browser.
 
 To run mage go to the directory containing mage project and configuration files, in this repository it is `mage-quickstart`. Once in the directory,
 run `docker compose up` and then open `http://localhost:6789` in your browser. The contents for the Mage AI orchestration tool are within `mage-repo` branch.
 If mlflow doesn't have any attributes working in mage, it may not be properly installed or built - try running `docker compose build` once inside the `mage-quickstart`
-directory.
+directory. To see the shell/kernel of the docker container run `docker exec -ti <CONTAINER_ID> /bin/sh` where `<CONTAINER_ID>` can be found using `docker ps -a` when
+the docker container is running after `docker compose up`, this is useful for seeing if mlflow is installed in mage (the image name was `mageai/mageai:latest`).
 
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
