@@ -3,6 +3,7 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import root_mean_squared_error
 import mlflow
+# import mlflow.sklearn
 
 if 'custom' not in globals():
     from mage_ai.data_preparation.decorators import custom
@@ -19,7 +20,7 @@ def transform_custom(train_data, **kwargs):
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
     # Specify your custom logic here
-    print(mlflow.__version__)
+    # print(mlflow.__version__)
     mlflow.set_tracking_uri('sqlite:///home/mlflow/mlflow.db')
     mlflow.set_experiment('nyc-yellow-23-lrm')
 
