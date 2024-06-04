@@ -14,6 +14,8 @@ Or just go to `http://127.0.0.1:5000` in the browser.
 
 To run mage go to the directory containing mage project and configuration files, in this repository it is `mage-quickstart`. Once in the directory,
 run `docker compose up` and then open `http://localhost:6789` in your browser. The contents for the Mage AI orchestration tool are within `mage-repo` branch.
+If mlflow doesn't have any attributes working in mage, it may not be properly installed or built - try running `docker compose build` once inside the `mage-quickstart`
+directory.
 
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
