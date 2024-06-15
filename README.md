@@ -18,6 +18,10 @@ If mlflow doesn't have any attributes working in mage, it may not be properly in
 directory. To see the shell/kernel of the docker container run `docker exec -ti <CONTAINER_ID> /bin/sh` where `<CONTAINER_ID>` can be found using `docker ps -a` when
 the docker container is running after `docker compose up`, this is useful for seeing if mlflow is installed in mage (the image name was `mageai/mageai:latest`).
 
+IMPORTANT: When managing virtual environments: if the virtual environment is done through `python -m venv .` then deactivate using `deactivate`, otherwise if the virtual environment
+is done through `pipenv` then use `exit` to deactivate instead. To create pipenv environment using `pipenv install`, note that you can only create one per codespace. To then
+activate pipenv using `pipenv shell` and install required packages using `pipenv install <package-name>` or `pipenv install -r requirements.txt`.
+
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
 

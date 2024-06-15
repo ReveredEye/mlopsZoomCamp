@@ -1,12 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+"""
+Use the script through `python yearMonthTrainScript.py <year> <month>`
+where `<year>` is in the format `yyyy`
+and `<month>` is in the format 'mm'
+for example `python yearMonthTrainScript.py 2023 04`
+"""
+
 # In[11]:
-
-
-import os
+import os, sys
 import pickle
 import pandas as pd
+
+year = sys.argv[1]
+month = sys.argv[2]
 
 
 # In[12]:
@@ -35,10 +43,6 @@ def read_data(filename):
 
 
 # In[14]:
-
-
-year = '2023'
-month = '03'
 df = read_data('https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_' + year + '-'+ month + '.parquet')
 
 
@@ -56,10 +60,10 @@ y_pred = model.predict(X_val)
 # Q1) What is the standard deviation of the predicted duration of this dataset?
 print(f'The standard deviation of the predicated duration in this dataset is {y_pred.std()}.')
 
+# Q5) What is the mean predicted duration?
+print(f'The mean predicted duration is {y_pred.mean()}.')
 
 # In[19]:
-
-
 df['ride_id'] = f'{int(year):04d}/{int(month):02d}_' + df.index.astype('str')
 
 
