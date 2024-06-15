@@ -1,5 +1,5 @@
 # mlopsZoomCamp
-Main repository for my own progression through the MLOps Zoom camp course. To activate or deactivate python environment in codespaces
+Main repository for my own progression through the MLOps Zoom camp course. To activate or deactivate python environment (`python -m venv .`) in codespaces
 use `source <interpreter directory>/bin/activate` or `. deactivate`. Please install Python and Jupyter extensions in codespaces 
 (you can click on install on `codespaces: <codespace name>` in VSCode).
 
