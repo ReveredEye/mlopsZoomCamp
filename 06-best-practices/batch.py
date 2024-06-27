@@ -9,17 +9,20 @@ import pandas as pd
 # year = int(sys.argv[1])
 # month = int(sys.argv[2])
 
-def read_data(filename, categorical):
-    df = pd.read_parquet(filename)
-    
+def prepare_data(df, categorical):
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
     df['duration'] = df.duration.dt.total_seconds() / 60
 
     df = df[(df.duration >= 1) & (df.duration <= 60)].copy()
 
     df[categorical] = df[categorical].fillna(-1).astype('int').astype('str')
-    
     return df
+
+
+def read_data(filename, categorical):
+    df = pd.read_parquet(filename)
+    
+    return prepare_data(df, categorical)
 
 def main(year, month):
     input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year:04d}-{month:02d}.parquet'
@@ -50,4 +53,4 @@ def main(year, month):
 
     df_result.to_parquet(output_file, engine='pyarrow', index=False)
 
-main(year = int(sys.argv[1]), month = int(sys.argv[2]))
+# main(year = int(sys.argv[1]), month = int(sys.argv[2]))
