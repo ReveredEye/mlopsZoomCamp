@@ -1,13 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import sys
+import os, sys
 import pickle
 import pandas as pd
 
 # System arguments
 # year = int(sys.argv[1])
 # month = int(sys.argv[2])
+
+def get_input_path(year, month):
+    default_input_pattern = 'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year:04d}-{month:02d}.parquet'
+    input_pattern = os.getenv('INPUT_FILE_PATTERN', default_input_pattern)
+    return input_pattern.format(year=year, month=month)
+
+
+def get_output_path(year, month):
+    default_output_pattern = 's3://nyc-duration-prediction-alexey/taxi_type=fhv/year={year:04d}/month={month:02d}/predictions.parquet'
+    output_pattern = os.getenv('OUTPUT_FILE_PATTERN', default_output_pattern)
+    return output_pattern.format(year=year, month=month)
 
 def prepare_data(df, categorical):
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
@@ -20,13 +31,25 @@ def prepare_data(df, categorical):
 
 
 def read_data(filename, categorical):
-    df = pd.read_parquet(filename)
+    if os.getenv('S3_ENDPOINT_URL') is not None:
+        options = {
+            'client_kwargs': {
+                'endpoint_url': os.getenv('S3_ENDPOINT_URL')#S3_ENDPOINT_URL
+            }
+        }
+        df = pd.read_parquet('s3://bucket/file.parquet', storage_options=options)
+    else:
+        df = pd.read_parquet(filename)
     
     return prepare_data(df, categorical)
 
 def main(year, month):
-    input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year:04d}-{month:02d}.parquet'
-    output_file = f'./output_test/yellow_tripdata_{year:04d}-{month:02d}.parquet'
+    # For questions 1-3
+    # input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year:04d}-{month:02d}.parquet'
+    # output_file = f'./output_test/yellow_tripdata_{year:04d}-{month:02d}.parquet'
+
+    input_file = get_input_path(year, month)
+    output_file = get_output_path(year, month)
 
 
     with open('../04-deployment/starterFiles/model.bin', 'rb') as f_in:
