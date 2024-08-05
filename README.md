@@ -23,6 +23,8 @@ IMPORTANT: When managing virtual environments: if the virtual environment is don
 is done through `pipenv` then use `exit` to deactivate instead. To create pipenv environment using `pipenv install`, note that you can only create one per codespace. To then
 activate pipenv using `pipenv shell` and install required packages using `pipenv install <package-name>` or `pipenv install -r requirements.txt`.
 
+Certificate and certificate ID can be generated from within the `Certificate` folder.
+
 # Link to course info:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main
 
